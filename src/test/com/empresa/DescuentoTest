@@ -1,0 +1,25 @@
+package com.empresa;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class DescuentoTest{
+    @Test
+    void descuentoValido(){
+        Descuento des1 = new Descuento(100);
+        assertEquals(90,des1.aplicarDescuento());
+        
+    }
+    @Test 
+    void descuentoLimite(){
+        Descuento des2 = new Descuento(0);
+        assertEquals(0,des2.aplicarDescuento());
+
+    }
+    @Test
+    void descuentoInvalido() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Descuento(-2);
+        });
+    }
+    
+}
